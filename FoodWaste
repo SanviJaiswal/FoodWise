@@ -86,3 +86,93 @@ animation: pulseDark 6s infinite;
 </div>
 
 <script>
+let pantry = [];
+let foods = [
+  { emoji: "🍎", healthy: true },
+  { emoji: "🍩", healthy: false },
+  { emoji: "🥦", healthy: true },
+  { emoji: "🍕", healthy: false }
+];
+let current = {};
+let score = 0;
+let taps = 0;
+let tapping = false;
+
+function add() {
+  let n = document.getElementById('name').value.trim();
+  let d = document.getElementById('date').value;
+  if (!n || !d) return;
+  pantry.push({ name: n, date: d });
+  document.getElementById('name').value = '';
+  document.getElementById('date').value = '';
+  showPantry();
+  document.getElementById('addFeedback').innerText = "Nice job! You added a food item!";
+}
+
+function showPantry() {
+  let list = document.getElementById('list');
+  list.innerHTML = '';
+  let savedCount = 0;
+  pantry.forEach((f, i) => {
+    let days = Math.ceil((new Date(f.date) - new Date()) / (1000*60*60*24));
+    let status = days < 0 ? 'expired' : days < 3 ? 'soon' : 'fresh';
+    if(days >= 0) savedCount++;
+    let div = document.createElement('div');
+    div.className = 'item ' + status;
+    div.innerHTML = `${f.name} (${days} days) <button onclick="deleteItem(${i})">Delete</button>`;
+    list.appendChild(div);
+  });
+  document.getElementById('impact').innerText = `Saved ${savedCount} items (~${(savedCount*1.6).toFixed(1)} lbs, ~$${(savedCount*4.5).toFixed(2)}, ~${(savedCount*1.6*3.2).toFixed(1)} lbs CO₂)`;
+}
+
+function deleteItem(i) {
+  pantry.splice(i, 1);
+  showPantry();
+  document.getElementById('addFeedback').innerText = "You removed an item! Keep going!";
+}
+
+// Healthy Food Game
+function nextFood() {
+  current = foods[Math.floor(Math.random() * foods.length)];
+  document.getElementById('foodEmoji').innerText = current.emoji;
+  document.getElementById('feedback').innerText = '';
+}
+
+function guess(isHealthy) {
+  if (isHealthy === current.healthy) {
+    score++;
+    document.getElementById('feedback').innerText = 'Correct! Great job!';
+  } else {
+    score--;
+    document.getElementById('feedback').innerText = 'Oops! Try again!';
+  }
+  document.getElementById('score').innerText = score;
+  nextFood();
+}
+
+// Tap Challenge
+document.getElementById('tapButton').addEventListener('click', function() {
+  if (!tapping) {
+    taps = 0;
+    tapping = true;
+    this.innerText = 'Go! Tap Fast!';
+    let btn = this;
+    let clickHandler = function() { taps++; };
+    btn.addEventListener('click', clickHandler);
+    setTimeout(() => {
+      tapping = false;
+      btn.removeEventListener('click', clickHandler);
+      btn.innerText = 'Tap Me Fast!';
+      document.getElementById('tapResult').innerText = `You tapped ${taps} times!`;
+      document.getElementById('tapFeedback').innerText = "Nice! Keep practicing!";
+    }, 5000);
+  }
+});
+
+showPantry();
+nextFood();
+</script>
+
+</body>
+</html>
+
