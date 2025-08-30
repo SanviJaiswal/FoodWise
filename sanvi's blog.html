@@ -1,202 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lessons Learned: Mental Health and Kindness Blog</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Body styling */
-        body {
-            background-color: #f9e2e6; /* Blush pink background */
-            color: #5d4037; /* Dark brown font */
-            font-family: 'Lora', serif; /* Print-style font for main content */
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FoodWise</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    color: #000;
+    transition: 0.5s;
+    animation: pulseLight 6s infinite;
+  }
 
-        /* Header section */
-        header {
-            background-color: #f4c6c9; /* Light blush pink for header */
-            padding: 20px;
-        }
+  .dark {
+    animation: pulseDark 6s infinite;
+    background-color: #2b2b2b;
+    color: #000;
+  }
 
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 0;
-        }
+  h1 { text-align: center; color: #ff66a3; }
+  @keyframes pulseLight {
+    0% { background-color: #ffe6f0; }
+    50% { background-color: #d1a3ff; }
+    100% { background-color: #ffe6f0; }
+  }
+  @keyframes pulseDark {
+    0% { background-color: #000; }
+    50% { background-color: #003366; }
+    100% { background-color: #000; }
+  }
 
-        /* Navigation bar */
-        nav {
-            background-color: #f4e1c1; /* Cream color */
-            padding: 10px;
-        }
-
-        nav a {
-            color: #d4af37; /* Gold font color */
-            text-decoration: none;
-            font-size: 1.2rem;
-            margin: 0 20px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* Main content section */
-        .main-content {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .main-content h2 {
-            color: #5d4037; /* Dark brown for subheadings */
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .main-content p {
-            font-size: 1.1rem;
-            color: #4e342e; /* Slightly darker brown for text */
-            margin-bottom: 20px;
-        }
-
-        .main-content ul {
-            text-align: left;
-            font-size: 1.1rem;
-            color: #4e342e;
-            margin: 0;
-            padding-left: 20px;
-        }
-
-        .main-content ul li {
-            margin-bottom: 10px;
-        }
-
-        /* Footer section */
-        footer {
-            background-color: #f4c6c9;
-            padding: 10px;
-            font-size: 0.9rem;
-        }
-        
-        footer p {
-            margin: 0;
-            color: #5d4037;
-        }
-        
-        a {
-            color: #5d4037;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Kindness Blog section styling */
-        .kindness-content, .gratitude-content, .world-action-content, .dreaming-big-content {
-            background-color: #a8d5ba; /* Sage green background */
-            color: #0277bd; /* Blue font color */
-            padding: 20px;
-            max-width: 800px;
-            margin: 20px auto;
-            border-radius: 8px;
-            font-family: 'Patrick Hand', sans-serif; /* Handwriting font */
-        }
-
-        .kindness-content h3, .gratitude-content h3, .world-action-content h3, .dreaming-big-content h3 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .kindness-content p, .gratitude-content p, .world-action-content p, .dreaming-big-content p {
-            font-size: 1.1rem;
-            color: #0277bd; /* Blue font color */
-            margin-bottom: 15px;
-        }
-
-        /* Styling for Work of Progress section */
-        .work-of-progress {
-            font-size: 1.1rem;
-            margin-top: 30px;
-        }
-
-    </style>
+  .card { background: #f2f2f2; padding: 20px; margin: 15px auto; max-width: 500px; border-radius: 10px; }
+  input, button { padding: 10px; margin: 5px 0; font-size: 14px; }
+  button { background-color: #ff66a3; color: #fff; border: none; cursor: pointer; }
+  .item { margin: 5px 0; padding: 10px; border-radius: 5px; color: #fff; }
+  .fresh { background-color: green; }
+  .soon { background-color: orange; }
+  .expired { background-color: red; }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Lessons Learned Blog</h1>
-    </header>
 
-    <!-- Main content section -->
-    <div class="main-content">
-        <h2>About Me</h2>
-        <p>Hello! I’m Sanvi Jaiswal, and I’m passionate about learning and creating. I enjoy exploring the world of coding because it allows me to think critically and solve problems in creative ways. There’s always something new to learn, and that’s what makes it exciting for me. I’m constantly improving my skills in Java, Python, SQL, HTML, CSS, and JavaScript as I work on different projects.</p>
+<h1>FoodWise</h1>
+<button onclick="document.body.classList.toggle('dark')">Toggle Dark Mode</button>
 
-        <p>While coding is one of my main interests, I believe in maintaining a healthy balance between my student life and my personal interests. In my free time, I enjoy playing the violin, experimenting with new recipes in the kitchen, and I also love to draw and paint. Sometimes, I create digital artwork, which allows me to express myself creatively in different ways. These hobbies help me stay grounded and provide a creative outlet when I’m not coding.</p>
+<div class="card">
+  <h3>Add Food Item</h3>
+  <input id="name" placeholder="Food name" type="text">
+  <input id="date" type="date">
+  <button onclick="add()">Add Item</button>
+  <div id="list"></div>
+  <p id="addFeedback" style="color:black;"></p>
+</div>
 
-        <h2>Why Coding is So Exciting</h2>
-        <p>For me, coding is more than just a skill—it’s a way to solve real-world problems and bring ideas to life. Whether I’m building a simple website or learning a new programming language, there’s always something to discover. It’s this constant learning and the satisfaction of creating something functional that keeps me motivated.</p>
+<div class="card">
+  <h3>Saved Food Impact</h3>
+  <p id="impact">No items yet.</p>
+</div>
 
-        <h2>This Website: A Project I’m Proud Of</h2>
-        <p>This website is one of my personal projects where I applied the knowledge I’ve gained so far. It’s a great example of how I’m combining the different coding skills that I have learned to create something thrilling. While I’m always looking to improve and refine my work, I’m happy to see how far I’ve come and excited for the future possibilities.</p>
+<div class="card">
+  <h3>Healthy Food Game</h3>
+  <p id="foodEmoji" style="font-size: 2rem;">🍎</p>
+  <button onclick="guess(true)">Healthy</button>
+  <button onclick="guess(false)">Unhealthy</button>
+  <p>Score: <span id="score">0</span></p>
+  <p id="feedback" style="color:black;"></p>
+</div>
 
-        <h2>Skills & Languages I'm Learning</h2>
-        <ul>
-            <li>Java - Building applications and understanding object-oriented principles</li>
-            <li>Python - Exploring its uses in data analysis and automation</li>
-            <li>SQL - Working with databases to store and manage data</li>
-            <li>HTML & CSS - Designing responsive and visually appealing websites</li>
-            <li>JavaScript - Adding interactivity to web pages</li>
-            <li><b>Additional projects that I have worked on</b></li>
-        </ul>
+<div class="card">
+  <h3>Tap Challenge</h3>
+  <button id="tapButton">Tap Me Fast!</button>
+  <p id="tapResult"></p>
+  <p id="tapFeedback" style="color:black;"></p>
+</div>
 
-        <h2>Contact Me</h2>
-        <p>If you’re interested in learning to code or want to talk about technology, feel free to reach out. I offer free coding lessons through Discord. You can contact me at <a href="mailto:sanvijaiswal.email@gmail.com">sanvijaiswal.email@gmail.com</a>.</p>
-    </div>
+<div class="card">
+  <h3>Save Food Tips</h3>
+  <ul>
+    <li>📅 Plan meals ahead</li>
+    <li>🧊 Freeze leftovers</li>
+    <li>📦 Label and date food</li>
+    <li>🥫 Use older items first</li>
+    <li>🤝 <a href="https://www.google.com/maps/search/food+shelter+near+McKinney+TX" target="_blank">Find nearby food shelters</a></li>
+  </ul>
+</div>
 
-    <!-- Heart section with text -->
-    <div class="work-of-progress">
-        <span>This blog is a work of progress so please forgive if certain things are not working :)</span> 
-    </div>
+<script>
+let pantry = [];
+let foods = [
+  { emoji: "🍎", healthy: true },
+  { emoji: "🍩", healthy: false },
+  { emoji: "🥦", healthy: true },
+  { emoji: "🍕", healthy: false }
+];
+let current = {};
+let score = 0;
+let taps = 0;
+let tapping = false;
 
-    <!-- Kindness content page -->
-    <div class="kindness-content">
-        <h3>The Importance of Kindness</h3>
-        <p>Kindness is one of the simplest and most powerful actions we can share with others. It doesn't have to be grand gestures—it can be as simple as offering a smile or a helping hand when someone needs it. Small acts of kindness can make a big difference in someone’s day, and in turn, they can help you feel connected to the people around you.</p>
-        <p>I had the opportunity to witness a beautiful example of kindness recently. I was walking in the park when I saw a woman drop her groceries. Without hesitation, a stranger rushed over to help her pick them up. This simple act of kindness made me think about how powerful small actions can be. It doesn’t take much to change someone’s day for the better.</p>
-        <p>Whether it’s offering a kind word, helping a neighbor, or just listening to someone who needs to talk, kindness can create ripples of positivity that can spread far and wide. Let’s all make an effort to be kind, not just to others, but also to ourselves.</p>
-    </div>
+function add() {
+  let n = document.getElementById('name').value.trim();
+  let d = document.getElementById('date').value;
+  if (!n || !d) return;
+  pantry.push({ name: n, date: d });
+  document.getElementById('name').value = '';
+  document.getElementById('date').value = '';
+  showPantry();
+  document.getElementById('addFeedback').innerText = "Nice job! You added a food item!";
+}
 
-    <!-- Gratitude content page -->
-    <div class="gratitude-content">
-        <h3>Gratitude</h3>
-        <p>Gratitude is a powerful tool for mental well-being. It encourages us to reflect on the positive aspects of our lives, helping us recognize the small joys that often go unnoticed. I hope to spread kindness one day, just as others have done for me. Every act of kindness counts, and through gratitude, we can inspire others to join in this positive cycle.</p>
-    </div>
+function showPantry() {
+  let list = document.getElementById('list');
+  list.innerHTML = '';
+  let savedCount = 0;
+  pantry.forEach((f, i) => {
+    let days = Math.ceil((new Date(f.date) - new Date()) / (1000*60*60*24));
+    let status = days < 0 ? 'expired' : days < 3 ? 'soon' : 'fresh';
+    if(days >= 0) savedCount++;
+    let div = document.createElement('div');
+    div.className = 'item ' + status;
+    div.innerHTML = `${f.name} (${days} days) <button onclick="deleteItem(${i})">Delete</button>`;
+    list.appendChild(div);
+  });
+  document.getElementById('impact').innerText = `Saved ${savedCount} items (~${(savedCount*1.6).toFixed(1)} lbs, ~$${(savedCount*4.5).toFixed(2)}, ~${(savedCount*1.6*3.2).toFixed(1)} lbs CO₂)`;
+}
 
-    <!-- Changing the World Through Our Actions content page -->
-    <div class="world-action-content">
-        <h3>Changing the World Through Our Actions</h3>
-        <p>Our actions have the power to influence those around us. Small gestures of kindness, thoughtfulness, and empathy can create ripple effects that lead to big changes in the world. Every positive action, no matter how small, contributes to a better future. If we each take responsibility for our actions and make the world a kinder, more understanding place, we can all create significant change together.</p>
-    </div>
+function deleteItem(i) {
+  pantry.splice(i, 1);
+  showPantry();
+  document.getElementById('addFeedback').innerText = "You removed an item! Keep going!";
+}
 
-    <!-- Dreaming Big content page -->
-    <div class="dreaming-big-content">
-        <h3>Dreaming Big</h3>
-        <p>Dreaming big is the first step towards achieving something extraordinary. When we set ambitious goals, we push ourselves beyond what we think is possible. We should always dare to dream big, no matter how far-fetched it may seem. With hard work, dedication, and belief in ourselves, we can turn these dreams into reality.</p>
-        <p>Remember, everything that exists today, from technology to art to social movements, began as someone’s big dream. Never underestimate the power of your dreams—they have the potential to change your life and the world.</p>
-    </div>
+// Healthy Food Game
+function nextFood() {
+  current = foods[Math.floor(Math.random() * foods.length)];
+  document.getElementById('foodEmoji').innerText = current.emoji;
+  document.getElementById('feedback').innerText = '';
+}
 
-    <footer>
-        <p>&copy; 2024 Sanvi Jaiswal | Designed with curiosity and passion</p>
-    </footer>
+function guess(isHealthy) {
+  if (isHealthy === current.healthy) {
+    score++;
+    document.getElementById('feedback').innerText = 'Correct! Great job!';
+  } else {
+    score--;
+    document.getElementById('feedback').innerText = 'Oops! Try again!';
+  }
+  document.getElementById('score').innerText = score;
+  nextFood();
+}
+
+// Tap Challenge
+document.getElementById('tapButton').addEventListener('click', function() {
+  if (!tapping) {
+    taps = 0;
+    tapping = true;
+    this.innerText = 'Go! Tap Fast!';
+    let btn = this;
+    let clickHandler = function() { taps++; };
+    btn.addEventListener('click', clickHandler);
+    setTimeout(() => {
+      tapping = false;
+      btn.removeEventListener('click', clickHandler);
+      btn.innerText = 'Tap Me Fast!';
+      document.getElementById('tapResult').innerText = `You tapped ${taps} times!`;
+      document.getElementById('tapFeedback').innerText = "Nice! Keep practicing!";
+    }, 5000);
+  }
+});
+
+showPantry();
+nextFood();
+</script>
 
 </body>
 </html>
